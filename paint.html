@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>JS-PAINT-APP</title>
+        <link rel='stylesheet' href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>JS-PAINT-APP</h1>
+        <div class='color-picker'>
+          <div class="color" id="selected" style="background-color: white;"></div>
+          <div class="color" style="background-color:rgb(255, 255, 255);" onclick="changeColor(this);"></div>
+          <div class="color" style="background-color:rgb(0, 0, 0);" onclick="changeColor(this);"></div>
+          <div class="color" style="background-color:#1abc9c;" onclick="changeColor(this);"></div>
+          <div class="color" style="background-color:#2ecc71;" onclick="changeColor(this);"></div>
+          <div class="color" style="background-color:#026b6e;" onclick="changeColor(this);"></div>
+          <div class="color" style="background-color:rgb(41, 128, 185);" onclick="changeColor(this);"></div>
+          <div class="color" style="background-color:rgb(250, 25, 0);" onclick="changeColor(this);"></div>
+          <div class="color" style="background-color:rgb(248, 199, 1);" onclick="changeColor(this);"></div>
+          <div class="color" style="background-color:#9980FA;" onclick="changeColor(this);"></div>
+          <div class="color" style="background-color:#20e6be;" onclick="changeColor(this);"></div>
+          <div class="color" style="background-color:#0d58e2;" onclick="changeColor(this);"></div>
+          <div class="color" style="background-color:#1B9CFC;" onclick="changeColor(this);"></div>
+        </div>
+        <button id='clearBtn' onclick="clearCanvas();">CLEAR CANVAS</button>
+        <div id='artboard'>
+
+        </div>
+        <script>
+            var artboard = document.getElementById('artboard');
+            function addBoxes(){
+                for (var i=0; i<800; i++) {
+                    artboard.innerHTML += "<div class='box' onclick='fillArtboard(this);'></div>";
+                }
+            }
+            addBoxes();
+
+            var selectedColor = 'red';
+
+            function fillArtboard(box) {
+                box.style.backgroundColor = selectedColor;
+                box.style.borderColor = selectedColor;
+            }
+
+            function changeColor(colorBox) {
+                selectedColor = colorBox.style.backgroundColor;
+                document.getElementById('selected').style.backgroundColor = selectedColor;
+            }
+
+            function clearCanvas() {
+                artboard.innerHTML = "";
+                addBoxes();
+            }
+        </script>
+    </body>
+</html>
+<script type="application/javascript" src="/share.js"></script>
